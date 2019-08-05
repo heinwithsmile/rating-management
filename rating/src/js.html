@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function oneFunc(value) { 
+    return value == 1; 
+} 
+function twoFunc(value) { 
+  return value == 2; 
+} 
+function threeFunc(value) { 
+  return value == 3; 
+} 
+function fourFunc(value) { 
+  return value == 4; 
+} 
+function fiveFunc(value) { 
+  return value == 5; 
+} 
+function func() { 
+    var arr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,];
+    // var {onecount,twocount,threecount,fourcount,fivecount} = '';
+    // var allcount = [onecount,twocount,threecount,fourcount,fivecount];
+    // var allFunc = [oneFunc,twoFunc,threeFunc,fourFunc,fiveFunc]
+    // for (var count;count<=allcount.length;count++){
+    //   for (var func;func<=allFunc.length;func++){
+    //     count = arr.filter(func)
+    //     var ar = [count];
+    //     console.log(ar)
+    //   }
+    //   // count = arr.filter(oneFunc);
+    // }
+    var onecount =arr.filter(oneFunc);
+    var twocount =arr.filter(twoFunc); 
+    var threecount =arr.filter(threeFunc);
+    var fourcount =arr.filter(fourFunc);
+    var fivecount =arr.filter(fiveFunc); 
+    var ones = [];
+    var twos = [];
+    var threes = [];
+    var fours = [];
+    var fives = [];
+    var oneSum,twoSum,threeSum,fourSum,fiveSum = 0;
+    ones.push(onecount);
+    twos.push(twocount);
+    threes.push(threecount);
+    fours.push(fourcount);
+    fives.push(fivecount);
+    ones.map(one => (
+     oneSum = one.length
+    ))
+    twos.map(two => (
+     twoSum = two.length
+    ))
+    threes.map(three => (
+     threeSum = three.length
+    ))
+    fours.map(four => (
+     fourSum = four.length
+    ))
+    fives.map(five => (
+     fiveSum = five.length
+    ))
+    var o,t,th,f,fiv = 0;
+    o = oneSum * 1;
+    t = twoSum*2;
+    th=threeSum*3;
+    f =fourSum*4;
+    fiv = fiveSum*5;
+    var sumall = 0;
+    var sumleng = 0;
+    sumleng = oneSum+twoSum+threeSum+fourSum+fiveSum;
+    sumall = o+t+th+f+fiv;
+    var avg = 0;
+    avg = sumall / sumleng;
+    document.write(avg)
+   } 
+    func(); 
+    </script>
+</body>
+</html>
