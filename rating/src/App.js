@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import TownShip from './components/Township';
-import Yangon from './components/Yangon';
+import DepartmentList from './components/DepartmentList';
+import OverallDashboard from './components/OverallDashboard';
 import CreateBank from './components/BankCreateForm';
 
 class App extends Component {
@@ -29,13 +29,13 @@ class App extends Component {
   }
   twonshipfunc = () => {
     return (
-      <TownShip />
+      <DepartmentList />
     );
   }
   yangonfunc = () => {
     return (
       <div>
-      <Yangon data={this.state.ratings} />
+      <OverallDashboard data={this.state.ratings} />
       </div>
     );
   }
@@ -48,16 +48,16 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Route path="/yangon" exact component={this.yangonfunc} />
+          <Route path="/overalldashboard" exact component={this.yangonfunc} />
           <Route path="/township" exact component={this.twonshipfunc} />
           <Route path="/createbank" exact component={this.createbankfunc} />
           <ul className="mt-5">
             <li>
-              <Link to="/yangon">Yangon</Link>
+              <Link to="/overalldashboard">OverallDashboard</Link>
             </li>
-            <li><Link to="/township">Township</Link></li>
+            <li><Link to="/township">Department List</Link></li>
             <li>
-              <Link to="/createbank">Create Bank</Link>
+              <Link to="/createbank">Create Department</Link>
             </li>
           </ul>
         </Router>

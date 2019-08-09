@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
-class Yangon extends Component {
+class OverallDashboard extends Component {
     constructor(props) {
         super(props);
         this.state={
@@ -9,12 +9,12 @@ class Yangon extends Component {
         }
     }
     getTownship(){
-        fetch(`http://localhost:5001/api/city/findall`)
+        fetch(`http://localhost:5001/api/department/finddepartments`)
         .then(response=>response.json())
         .then(data=>{
             var townships = [];
             data.map(township=>(
-                townships.push(township.name)
+                townships.push(township.name_mm)
             ))
             // console.log(townships)
             this.setState({
@@ -42,7 +42,7 @@ class Yangon extends Component {
 
         return (
             <div className="Chart">
-              <h1 className="text-center mt-3 mb-3">Customer Satisfaction Survey of Townships in Yangon Region</h1>
+              <h1 className="text-center mt-3 mb-3">Customer Satisfaction Survey of Overall Departments</h1>
                 <Bar
                     data={chartData}
                     options={{}}
@@ -51,4 +51,4 @@ class Yangon extends Component {
         );
     }
 }
-export default Yangon;
+export default OverallDashboard;
