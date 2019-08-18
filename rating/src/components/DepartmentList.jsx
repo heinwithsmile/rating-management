@@ -49,15 +49,16 @@ class TownShip extends React.Component {
     componentWillMount() {
         this.getData();
     }
-    townfunc =()=> {
+    townfunc =()=> {    
         return (
             <Pie/>
         );
     }
     render() {
         const logo_style = {
-            width: '200px',
-            height: '50px'
+            width: '100px',
+            height: '50px',
+            
         }
         const searchField = {
             'margin-left': '600px',
@@ -76,6 +77,7 @@ class TownShip extends React.Component {
                                 onChange={this.handleInputChange}
                             />
                         </form>
+                        <a href="http://localhost:8080"><button className="btn btn-primary ml-2">CRUD DEPARTMENT</button></a>
                     </Navbar.Collapse>
                 </Navbar>
                 <div className="mt-3" >

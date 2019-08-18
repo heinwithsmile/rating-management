@@ -4,12 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import DepartmentList from './components/DepartmentList';
 import OverallDashboard from './components/OverallDashboard';
-import CreateBank from './components/BankCreateForm';
+// import CreateBank from './components/BankCreateForm';
+import ProgressTable from './components/Table';
 
 class App extends Component {
   state = {
     ratings: []
   }
+  
   getChartData() {
     fetch(`http://localhost:5001/api/city/findrating`)
       .then(response => response.json())
@@ -24,14 +26,17 @@ class App extends Component {
         })
       })
   }
+
   componentWillMount() {
     this.getChartData();
   }
+
   twonshipfunc = () => {
     return (
       <DepartmentList />
     );
   }
+
   yangonfunc = () => {
     return (
       <div>
@@ -39,9 +44,15 @@ class App extends Component {
       </div>
     );
   }
-  createbankfunc = () => {
-    return (
-      <CreateBank />
+
+  // createbankfunc = () => {
+  //   return (
+  //     <CreateBank />
+  //   );
+  // }
+  viewProgress(){
+    return(
+      <ProgressTable/>
     );
   }
   render() {
@@ -50,15 +61,17 @@ class App extends Component {
         <Router>
           <Route path="/overalldashboard" exact component={this.yangonfunc} />
           <Route path="/township" exact component={this.twonshipfunc} />
-          <Route path="/createbank" exact component={this.createbankfunc} />
+          {/* <Route path="/createbank" exact component={this.createbankfunc} /> */}
+          <Route path="/progress" exact component={this.viewProgress} />
           <ul className="mt-5">
             <li>
               <Link to="/overalldashboard">OverallDashboard</Link>
             </li>
             <li><Link to="/township">Department List</Link></li>
-            <li>
+            {/* <li>
               <Link to="/createbank">Create Department</Link>
-            </li>
+            </li> */}
+            <li><Link to="/progress">View Progress Rating</Link></li>
           </ul>
         </Router>
       </div>
