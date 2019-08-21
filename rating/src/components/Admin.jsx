@@ -1,81 +1,79 @@
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import DepartmentList from './DepartmentList';
-import OverallDashboard from './OverallDashboard';
-// import CreateBank from './components/BankCreateForm';
-import ProgressTable from './Table';
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Link, Redirect } from "react-router-dom";
+// import DepartmentList from "./DepartmentList";
+// import OverallDashboard from "./OverallDashboard";
+// import ProgressTable from "./Table";
+// import Logout from "./Logout";
 
 class App extends Component {
-  state = {
-    ratings: []
+  constructor(props) {
+    super(props);
+    const token = localStorage.getItem("token");
+
+    const loggedIn = true;
+    if (token == false) {
+      loggedIn = false;
+    }
+    this.state = {
+      ratings: [],
+      loggedIn
+    };
   }
-  
+
   getChartData() {
     fetch(`http://localhost:5001/api/city/findrating`)
       .then(response => response.json())
       .then(data => {
         var ratings = [];
-        data.map(rate =>(
-          ratings.push(rate.rating)
-        ))
+        data.map(rate => ratings.push(rate.rating));
 
         this.setState({
           ratings: ratings
-        })
-      })
+        });
+      });
   }
 
   componentWillMount() {
     this.getChartData();
   }
 
-  twonshipfunc = () => {
-    return (
-      <DepartmentList />
-    );
-  }
+  // departmentFunc = () => {
+  //   return <DepartmentList />;
+  // };
 
-  yangonfunc = () => {
-    return (
-      <div>
-      <OverallDashboard data={this.state.ratings} />
-      <ProgressTable/>
-      </div>
-    );
-  }
-
-  // createbankfunc = () => {
+  // overallFunc = () => {
   //   return (
-  //     <CreateBank />
+  //     <div>
+  //       <OverallDashboard data={this.state.ratings} />
+  //       <ProgressTable />
+  //     </div>
   //   );
-  // }
-  // viewProgress(){
-  //   return(
-  //     <ProgressTable/>
-  //   );
-  // }
+  // };
+
+  // logoutFunc = () => {
+  //   return <Logout />;
+  // };
+
   render() {
+    if (this.state.loggedIn === false) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="App">
-        <Router>
-          <Route path="/overalldashboard" exact component={this.yangonfunc} />
-          <Route path="/township" exact component={this.twonshipfunc} />
-          {/* <Route path="/createbank" exact component={this.createbankfunc} /> */}
-          {/* <Route path="/progress" exact component={this.viewProgress} /> */}
-          <ul className="mt-5">
-            <li>
-              <Link to="/overalldashboard">OverallDashboard</Link>
-            </li>
-            <li><Link to="/township">Department List</Link></li>
-            {/* <li>
-              <Link to="/createbank">Create Department</Link>
-            </li> */}
-            {/* <li><Link to="/progress">View Progress Rating</Link></li> */}
-          </ul>
-        </Router>
+        <ul className="mt-5">
+          <li>
+            <Link to="/overalldepartment">Overall Department</Link>
+          </li>
+          <li>
+            <Link to="/department">Department List</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </ul>
       </div>
     );
   }
 }
-export default App
+export default App;
