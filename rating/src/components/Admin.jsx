@@ -38,23 +38,6 @@ class App extends Component {
     this.getChartData();
   }
 
-  // departmentFunc = () => {
-  //   return <DepartmentList />;
-  // };
-
-  // overallFunc = () => {
-  //   return (
-  //     <div>
-  //       <OverallDashboard data={this.state.ratings} />
-  //       <ProgressTable />
-  //     </div>
-  //   );
-  // };
-
-  // logoutFunc = () => {
-  //   return <Logout />;
-  // };
-
   render() {
     if (this.state.loggedIn === false) {
       return <Redirect to="/" />;

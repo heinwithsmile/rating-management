@@ -33,7 +33,7 @@ class Login extends Component {
       return <Redirect to="/admin" />;
     }
     return (
-      <div>
+      <div className="text-center mt-5">
         <h1>Login Page</h1>
         <form name="loginForm" onSubmit={this.onSubmit}>
           <div className="form-group-collection">

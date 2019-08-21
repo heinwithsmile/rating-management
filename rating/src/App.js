@@ -6,6 +6,7 @@ import Admin from "./components/Admin";
 import Logout from "./components/Logout";
 import OverallDashboard from "./components/OverallDashboard";
 import DepartmentList from "./components/DepartmentList";
+import Pie from "./components/DepamentDetail";
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/admin" component={Admin} />
           <Route path="/overalldepartment" component={OverallDashboard} />
           <Route path="/department" component={DepartmentList} />
+          <Route path="/detail" component={Pie} />
         </Switch>
       </BrowserRouter>
     );

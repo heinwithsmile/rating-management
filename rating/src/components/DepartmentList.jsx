@@ -7,9 +7,8 @@ import FormControl from "react-bootstrap/FormControl";
 import ListGroup from "react-bootstrap/ListGroup";
 // import Card from 'react-bootstrap/Card';
 import logo from "../image/logo.png";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Pie from "./DepamentDetail";
-import PTable from "./Table";
+import { Link } from "react-router-dom";
+
 
 class TownShip extends React.Component {
   constructor(props) {
@@ -47,24 +46,18 @@ class TownShip extends React.Component {
         });
       });
   };
+
   componentWillMount() {
     this.getData();
   }
-  townfunc = () => {
-    return (
-      <div>
-        <Pie />
-        <PTable />
-      </div>
-    );
-  };
+
   render() {
     const logo_style = {
       width: "100px",
       height: "80px"
     };
     const searchField = {
-      "margin-left": "600px"
+      "margin-left": "300px"
     };
 
     return (
@@ -75,31 +68,32 @@ class TownShip extends React.Component {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
+          <li className="ml-5"><Link to="/admin">Home</Link></li>
+          <li className=" ml-5 "> <a href="http://localhost:3002">MENAGEMENT DEPARTMENT</a></li>
+          <li className="ml-5"><Link to="/logout">Logout</Link></li>         
             <form inline style={searchField}>
               <FormControl
-                placeholder="Search By Department"
+                placeholder="Search Here"
                 value={this.state.query}
                 onChange={this.handleInputChange}
               />
             </form>
-            <a href="http://localhost:3002">
-              <button className="btn btn-primary ml-2">
+           
+            {/* <a href="http://localhost:3002">
+              <button className="btn btn-outline-success ml-3">
                 MENAGEMENT DEPARTMENT
               </button>
-            </a>
+            </a> */}
           </Navbar.Collapse>
         </Navbar>
-        <div className="mt-3">
-          <Router>
-            <Route path="/town" exact component={this.townfunc} />
+        <div className="mt-3 text-center">
             {this.state.filteredData.map(i => (
               <ListGroup variant="flush" key={i.id}>
                 <ListGroup.Item>
-                  <Link to="/town">{i.name_mm}</Link>
+                  <Link to="/detail">{i.name_mm}</Link>
                 </ListGroup.Item>
               </ListGroup>
             ))}
-          </Router>
         </div>
       </div>
     );

@@ -12,7 +12,7 @@ class ProgressTable extends Component {
   }
   render() {
     return (
-      <div className="mt-5">
+      <div className="m-5">
         <Table striped bordered hover id="mytable" size="sm">
           <thead className="">
             <tr>
@@ -43,12 +43,12 @@ class ProgressTable extends Component {
             </tr>
           </tbody>
         </Table>
-        <div>
-          <p>The average progress rating : </p>
+        <div className="text-center" >
+          <p className="">The average progress rating : </p>
         </div>
-        <div>
+        <div className="text-center">
           <a href="#">
-            <button className="btn btn-primary mb-5" onClick={this.saveTable}>
+            <button className="btn btn-outline-success" onClick={this.saveTable}>
               Generate Report
             </button>
           </a>
