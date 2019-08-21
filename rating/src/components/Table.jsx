@@ -16,48 +16,39 @@ class ProgressTable extends Component {
         <Table striped bordered hover id="mytable" size="sm">
           <thead className="">
             <tr>
-              <th>No</th>
-              <th>Department</th>
-              <th>Rating</th>
-              <th>Timestamp</th>
+              <th>Rating Level</th>
+              <th>Count Person</th>
             </tr>
           </thead>
-          <tbody >
+          <tbody>
             <tr>
-              <td>1</td>
-              <td>Admin Department</td>
-              <td>Satisfied</td>
-              <td>18.8.2019</td>
+              <td>Very Poor</td>
+              <td>15</td>
             </tr>
             <tr>
-              <td>2</td>
-              <td>Investment Section 1</td>
-              <td>Satisfied</td>
-              <td>18.8.2019</td>
+              <td>Poor</td>
+              <td>15</td>
             </tr>
             <tr>
-              <td>3</td>
-              <td>Investment Section 2</td>
-              <td>Satisfied</td>
-              <td>18.8.2019</td>
+              <td>Average</td>
+              <td>20</td>
             </tr>
             <tr>
-              <td>4</td>
-              <td>Policy and Legal Division</td>
-              <td>Satisfied</td>
-              <td>18.8.2019</td>
+              <td>Good</td>
+              <td>50</td>
             </tr>
             <tr>
-              <td>5</td>
-              <td>Company Registration</td>
-              <td>Satisfied</td>
-              <td>18.8.2019</td>
+              <td>Excellent</td>
+              <td>100</td>
             </tr>
           </tbody>
         </Table>
         <div>
+          <p>The average progress rating : </p>
+        </div>
+        <div>
           <a href="#">
-            <button className="btn btn-success" onClick={this.saveTable}>
+            <button className="btn btn-primary mb-5" onClick={this.saveTable}>
               Generate Report
             </button>
           </a>

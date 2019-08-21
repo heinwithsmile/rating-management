@@ -8,7 +8,7 @@ class PieCo extends Component {
             datasets: [
                 {
                     label: 'Customer Satisfaction Survey',
-                    data: ['111','222','333','444','555'],
+                    data: ['10','20','30','40','50'],
                     backgroundColor: ['rgb(255,99,132)','rgb(71, 34, 174)','rgb(6, 190, 86)','rgb(176, 200, 21)','rgb(33, 213, 207)'],
                 },
             ],
