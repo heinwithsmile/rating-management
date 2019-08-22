@@ -9,9 +9,9 @@ class Logout extends Component {
 
   render() {
     return (
-      <div className="text-center mt-3">
+      <div className="text-center mt-5">
         <h1>You have been Logouted!!!</h1>
-       <button className="btn btn-outline-success mt-3"><Link to="/">Login Again</Link></button>
+       <button className="btn btn-outline-success mt-5"><Link to="/">Login Again</Link></button>
       </div>
     );
   }

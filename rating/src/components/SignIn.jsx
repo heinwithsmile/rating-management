@@ -1,46 +1,18 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import { Container, Row, Form, Button, Card, Col } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    const token = localStorage.getItem("token");
-
-    let loggedIn = true;
-    if (token == null) {
-      loggedIn = false;
-    }
-    this.state = {
-      username: "",
-      password: "",
-      loggedIn
-    };
-  }
-
-  onSubmit = e => {
-    e.preventDefault();
-    let { username, password } = this.state;
-    if (username == "admin" && password == "admin123") {
-      localStorage.setItem("token", "kdkfkksdjkjskjksjd");
-      this.setState({
-        loggedIn: true
-      });
-    }
-  };
-
+class SignIn extends Component {
+  // state = {  }
   render() {
-    if (this.state.loggedIn) {
-      return <Redirect to="/home" />;
-    }
     return (
-      <Container className="mt-5">
+      <Container>
         <Row>
           <Col xs={6} md={4}>
+            xs=6 md=4
           </Col>
           <Col xs={6} md={4}>
             <Card style={{ width: "18rem" }}>
-            <Card.Title className="text-center mt-3">Login</Card.Title>
+              <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
                 <Form name="loginForm" onSubmit={this.onSubmit}>
                   <Form.Group controlId="formBasicEmail">
@@ -52,9 +24,12 @@ class Login extends Component {
                         this.setState({ username: e.target.value })
                       }
                       value={this.state.username}
-                      placeholder="unique name"
+                      placeholder="your unique name"
                       autoComplete="off"
                     />
+                    <Form.Text className="text-muted">
+                      We'll never share your email with anyone else.
+                    </Form.Text>
                   </Form.Group>
                   <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
@@ -65,9 +40,12 @@ class Login extends Component {
                         this.setState({ password: e.target.value })
                       }
                       value={this.state.password}
-                      placeholder="unique password"
+                      placeholder="your unique password"
                       autoComplete="off"
                     />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Check me out" />
                   </Form.Group>
                   <Button variant="primary" type="submit">
                     Submit
@@ -77,6 +55,7 @@ class Login extends Component {
             </Card>
           </Col>
           <Col xs={6} md={4}>
+            xs=6 md=4
           </Col>
         </Row>
       </Container>
@@ -84,4 +63,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default SignIn;
