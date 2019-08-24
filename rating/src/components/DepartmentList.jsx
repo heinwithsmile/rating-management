@@ -1,17 +1,9 @@
 import React from "react";
-// import Navbar from "react-bootstrap/Navbar";
-// import Nav from 'react-bootstrap/Nav';
-// import Form from 'react-bootstrap/Form';
-// import FormControl from "react-bootstrap/FormControl";
-// import Button from 'react-bootstrap/Button';
 import ListGroup from "react-bootstrap/ListGroup";
-// import Card from 'react-bootstrap/Card';
-// import logo from "../image/logo.png";
 import { Link } from "react-router-dom";
 import Nava from './Nav';
 
-
-class TownShip extends React.Component {
+class DepartmentList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +17,7 @@ class TownShip extends React.Component {
     const query = event.target.value;
     this.setState(prevState => {
       const filteredData = prevState.data.filter(element => {
-        return element.name_mm.toLowerCase().includes(query.toLowerCase());
+        return element.name.toLowerCase().includes(query.toLowerCase());
       });
       return {
         query,
@@ -39,7 +31,7 @@ class TownShip extends React.Component {
       .then(data => {
         const { query } = this.state;
         const filteredData = data.filter(element => {
-          return element.name_mm.toLowerCase().includes(query.toLowerCase());
+          return element.name.toLowerCase().includes(query.toLowerCase());
         });
 
         this.setState({
@@ -61,7 +53,7 @@ class TownShip extends React.Component {
             {this.state.filteredData.map(i => (
               <ListGroup variant="flush" key={i.id}>
                 <ListGroup.Item>
-                  <Link to="/detail">{i.name_mm}</Link>
+                  <Link to="/detail">{i.name}</Link>
                 </ListGroup.Item>
               </ListGroup>
             ))}
@@ -70,4 +62,4 @@ class TownShip extends React.Component {
     );
   }
 }
-export default TownShip;
+export default DepartmentList;

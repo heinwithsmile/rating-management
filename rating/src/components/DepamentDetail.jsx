@@ -1,18 +1,14 @@
 import React, { Component } from "react";
 import { Pie } from "react-chartjs-2";
 import PTable from "./Table";
-// import Navbar from "react-bootstrap/Navbar";
-// import logo from "../image/logo.png";
-// import { Link } from "react-router-dom";
-import Nava from './Nav';
+import Nava from "./Nav";
 class PieCo extends Component {
-  // state = {  }
   render() {
     var chartData = {
       labels: ["Very Poor", "Poor", "Average", "Good", "Very Good"],
       datasets: [
         {
-          label: "Customer Satisfaction Survey",
+          label: "Satisfaction Survey",
           data: ["10", "20", "30", "40", "50"],
           backgroundColor: [
             "rgb(255,99,132)",
@@ -27,8 +23,7 @@ class PieCo extends Component {
 
     return (
       <div className="">
-    <Nava />
-        {/* <h1 className="text-center mb-5">Admin Department Rating Data</h1> */}
+        <Nava />
         <div className="mt-5">
           <Pie data={chartData} options={{}} />
         </div>
